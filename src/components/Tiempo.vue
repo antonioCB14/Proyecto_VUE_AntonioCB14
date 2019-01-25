@@ -85,9 +85,9 @@ export default {
             this.recibirDatos();
         },
         recibirDatos() {
-            this.axios.get('http://api.openweathermap.org/data/2.5/weather?lat='+this.lat+'&lon='+this.lon+'&units=metric&appid='+this.APIkey).then(response => {
+            this.axios.get('https://api.openweathermap.org/data/2.5/weather?lat='+this.lat+'&lon='+this.lon+'&units=metric&appid='+this.APIkey).then(response => {
                 this.datos = response.data;
-                this.icono = "http://openweathermap.org/img/w/"+this.datos.weather[0].icon+".png";
+                this.icono = "https://openweathermap.org/img/w/"+this.datos.weather[0].icon+".png";
                 this.formattedTime = this.transformarDate(this.datos.dt);
                 this.amanecer = this.transformarDate(this.datos.sys.sunrise);
                 this.anochecer = this.transformarDate(this.datos.sys.sunset);
