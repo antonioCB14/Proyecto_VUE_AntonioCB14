@@ -15,7 +15,7 @@
             </b-row>
             <b-row class="justify-content-center">
                 <b-col cols="4">
-                    <h4 class="text-capitalize">{{traduccion.text[0]}}</h4>
+                    <h4 class="text-capitalize">{{traduccion}}</h4>
                 </b-col>
             </b-row>
             <b-row class="justify-content-center">
@@ -66,7 +66,7 @@ export default {
             lon:'',
             icono: "",
             formattedTime: "",
-            traduccion: [],
+            traduccion: "",
             amanecer: "",
             anochecer: "",
         };
@@ -102,7 +102,7 @@ export default {
         },
         traducir(){
             this.axios.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+this.APItraductor+'&text='+this.datos.weather[0].description+'&lang=es').then(response => {
-                this.traduccion = response.data;
+                this.traduccion = response.data.text[0];                
             })
         }
     },
